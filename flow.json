@@ -1,0 +1,22 @@
+{
+	 
+	"networks": {
+		"emulator": "127.0.0.1:3569",
+		"mainnet": "access.mainnet.nodes.onflow.org:9000",
+		"testnet": "access.devnet.nodes.onflow.org:9000"
+	},
+	"accounts": {
+		"my-testnet-account": {
+			"address": "ef426ec51072f815",
+			"key": "67b4f679fd2f8b774d916787f9476821a3516df705fd3024f24945f20e386219"
+		}
+	},
+	"contracts": {
+		"nfl_NFT": "./cadence/contracts/nfl_NFT.cdc"
+	},
+	"deployments": {
+		"testnet": {
+			"my-testnet-account": ["nfl_NFT"]
+		}
+	}
+}
