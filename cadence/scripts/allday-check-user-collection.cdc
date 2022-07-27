@@ -1,5 +1,5 @@
 import NonFungibleToken from 0x1d7e57aa55817448
-import NFL_NFT from 0x329feb3ab062d289
+import AllDay from 0xe4cf4bdc1751c65d
 
 pub struct UserData {
 	pub let nftID: UInt64
@@ -12,10 +12,14 @@ pub struct UserData {
             self.setID = setID
         }
 }
-pub fun main(account: Address, nftId: UInt64): UserData {
+pub fun main(account: Address): [UInt64] {
 
-	let nftValue: &NFL_NFT.NFT? = NFL_NFT.fetch(account,id:nftId)
+	let receiver = getAccount(account)
+        .getCapability(AllDay.CollectionPublicPath)!
+        .borrow<&{NonFungibleToken.CollectionPublic}>()!
+	
+	let ids = receiver.getIDs()
 
-	let userData = UserData(nftID:nftId,editionNum:nftValue?.editionNum,setID:nftValue?.setId)
-	return userData
+	return ids
+
 }
