@@ -1,16 +1,16 @@
-import nflInt_NFT from 0x04625c28593d9408
+import NFL_NFT from 0x329feb3ab062d289
 
 pub struct NFLTeamData {
     pub let totalSupply: UInt64
 
-    pub let seriesData: [nflInt_NFT.SeriesData]
-    pub let setData: [nflInt_NFT.NFTSetData]
+    pub let seriesData: [NFL_NFT.SeriesData]
+    pub let setData: [NFL_NFT.NFTSetData]
     
     init() {
-    self.totalSupply = nflInt_NFT.totalSupply
+    self.totalSupply = NFL_NFT.totalSupply
     
-    self.seriesData = nflInt_NFT.getAllSeries()
-    self.setData = nflInt_NFT.getAllSets()
+    self.seriesData = NFL_NFT.getAllSeries()
+    self.setData = NFL_NFT.getAllSets()
     }
 }
 pub fun main(): NFLTeamData {
